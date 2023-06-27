@@ -1,0 +1,90 @@
+import React, { useState } from "react";
+import "./header.css"
+import logo from './logo.svg';
+
+import React, { useState } from "react";
+import "./header.css"
+import logo from './logo.svg';
+{
+  // for name
+  const [nameinput, setNameinput] = useState("");
+  const [name, setNameame] = useState(nameinput);
+  // For email
+  cconst [emailinput, setEmailinput] = useState("");
+  const [email, setEmail] = useState(emailinput);
+   // For password
+   const [passwordinput, setpasswordinput] = useState("");
+   const [password, setpassword] = useState(passwordinput);
+  //For name
+  const onchanehandname = (e) => setName(e.target.value)
+  // For email
+  const onchanehandtwo = (ev) => setEmailinput(ev.target.value)
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (name === "") {
+      alert("Name field is blank");
+   }
+    else { setNewname([...newname,  name]) ;
+      setName("");}
+    setEmail([...email, emailinput])
+
+    if(passwordinput.length < 6 ){
+      alert("password must be contain 6 letter");
+    }
+else {setpassword([...password, emailinput]);
+  setpassword("");
+}
+  
+    setEmailinput("");
+   
+
+  }
+
+
+  return ( 
+    
+    <> <div className="header "></div>
+
+ 
+      <div className="centerflex">
+        <div className="signupbox">
+          <form onSubmit={handleSubmit} className="signupbox">
+            <label className="names colrwhite">Enter Full name
+              <input
+                type="text"
+                value={name}
+                onChange={onchanehandname} className="names marginleftnames"
+              />
+            </label>
+            <label className="names colrwhite">Enter Your Email
+              <input
+                type="email"
+                value={emailinput}
+                onChange={onchanehandtwo} className="names marginleftemail"
+              />
+            </label>
+                      
+            <label className="names colrwhite">Enter Password
+              <input
+                type="password"
+                // value={emailinput}
+                onChange={(e) => setpasswordinput(e.target.value)}
+                className="names marginleftpass"               />
+            </label>
+                      
+
+
+
+
+
+
+            <input type="submit" className="names mar-y" />
+          </form>
+        </div></div>
+      <h1> Enterd name :{newname} </h1>
+      <h1> Enterd email :{email} </h1>
+    </>
+  );
+}
+export default Signup;
